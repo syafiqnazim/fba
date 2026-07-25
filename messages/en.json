@@ -1,0 +1,90 @@
+{
+  "site": {
+    "name": "Fishing Buddies Academy",
+    "shortName": "FBA",
+    "tagline": "Learn to fish with people who know the water.",
+    "description": "Fishing Buddies Academy — a fishing academy in Malaysia."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "home": {
+    "headline": "Learn to fish. Make friends.",
+    "ctaPrimary": "Contact us",
+    "ctaSecondary": "View services",
+    "coaches": {
+      "title": "Our coaches",
+      "intro": "Learn directly from anglers who are active on the water — practical technique, ethics, and real sessions.",
+      "items": [
+        {
+          "name": "Coach Mahfudz",
+          "role": "Pomen Reel · Reelyology",
+          "bio": "Nearly 10 years of reel servicing since 2010 — baitcasters, spinning, multipliers, and electric reels. Founded Reelyology in 2015; 1,100+ reels repaired."
+        },
+        {
+          "name": "Coach Ariff",
+          "role": "Coach",
+          "bio": "FBA coach — time on the water with buddies who want to level up together."
+        }
+      ]
+    },
+    "blogPreview": {
+      "title": "From the blog",
+      "intro": "Tips, catch stories, and updates from the academy.",
+      "viewAll": "All articles"
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "body": "Fishing Buddies Academy (FBA) exists to teach practical, safe, and enjoyable fishing skills — alongside a supportive community."
+  },
+  "services": {
+    "title": "Services",
+    "intro": "We offer learning sessions and fishing experiences for beginners through intermediate anglers.",
+    "items": [
+      {
+        "title": "Basics classes",
+        "description": "Core techniques, safety, and ethics on the water."
+      },
+      {
+        "title": "Guided sessions",
+        "description": "Learn on real locations with hands-on coaching."
+      },
+      {
+        "title": "Group workshops",
+        "description": "Group sessions for friends, families, or communities."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contact Us",
+    "intro": "Questions about our classes or sessions? Send a message — we will get back to you soon.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Send message",
+    "sending": "Sending…",
+    "success": "Thank you. Your message has been sent.",
+    "error": "Sorry, we could not send your message. Please try again.",
+    "missingApi": "Contact form is not configured. Set NEXT_PUBLIC_CONTACT_API_URL."
+  },
+  "blog": {
+    "title": "Blog",
+    "intro": "Tips, stories, and updates from Fishing Buddies Academy.",
+    "readMore": "Read more",
+    "empty": "No articles yet."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "domain": "fba.my"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The page you are looking for does not exist.",
+    "back": "Back to home"
+  }
+}

@@ -1,26 +1,523 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #e8f2f6;
+  --foreground: #052834;
+  --muted: #4a6b73;
+  --surface: #ffffff;
+  --brand: #00adef;
+  --brand-deep: #063044;
+  --accent: #00adef;
+  --line: #c9dde3;
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-bg-strong: rgba(255, 255, 255, 0.72);
+  --glass-bg-dark: rgba(6, 48, 68, 0.45);
+  --glass-bg-dark-strong: rgba(6, 48, 68, 0.62);
+  --glass-border: rgba(255, 255, 255, 0.45);
+  --glass-border-dark: rgba(255, 255, 255, 0.18);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-brand: var(--brand);
+  --color-brand-deep: var(--brand-deep);
+  --color-accent: var(--accent);
+  --color-line: var(--line);
+  --font-sans: var(--font-outfit);
+  --font-display: var(--font-ubuntu);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+  background: var(--background);
+}
+
+::selection {
+  background: var(--brand);
+  color: #fff;
 }
 
 body {
-  background: var(--background);
+  overflow-x: clip;
+  background:
+    radial-gradient(ellipse 70% 45% at 0% 0%, #c5e8f5 0%, transparent 50%),
+    radial-gradient(ellipse 50% 35% at 100% 5%, #d4e8ee 0%, transparent 45%),
+    var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-outfit), system-ui, sans-serif;
+  letter-spacing: -0.011em;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  box-shadow: 0 8px 32px rgba(5, 40, 52, 0.08);
+}
+
+.glass-strong {
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  box-shadow: 0 12px 40px rgba(5, 40, 52, 0.1);
+}
+
+.glass-dark {
+  background: var(--glass-bg-dark);
+  border: 1px solid var(--glass-border-dark);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.glass-dark-strong {
+  background: var(--glass-bg-dark-strong);
+  border: 1px solid var(--glass-border-dark);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+}
+
+.slider-track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 0.25rem;
+}
+
+.slider-track::-webkit-scrollbar {
+  display: none;
+}
+
+.slider-track > * {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes section-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero motion */
+@keyframes hero-line-up {
+  from {
+    transform: translateY(110%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes ken-burns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+
+@keyframes float-y {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes glow-drift {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(4%, 3%) scale(1.05);
+  }
+}
+
+.animate-hero-line {
+  animation: hero-line-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-ken-burns {
+  animation: ken-burns 14s ease-in-out infinite alternate;
+}
+
+.animate-float {
+  animation: float-y 4.5s ease-in-out infinite alternate;
+}
+
+.animate-glow-drift {
+  animation: glow-drift 9s ease-in-out infinite alternate;
+}
+
+.animate-hero-fade-up {
+  animation: hero-fade-up 0.9s ease-out both;
+}
+
+.animate-hero-fade-up-delay {
+  animation: hero-fade-up 0.9s ease-out 0.15s both;
+}
+
+.animate-section-fade-up {
+  animation: section-fade-up 0.8s ease-out both;
+}
+
+/* Scroll reveal (driven by components/ui/Reveal.tsx). Uses an animation with
+   backwards fill instead of a transition so hover transitions on the same
+   element keep working once the reveal has finished. */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.1rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.reveal {
+  opacity: 0;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  animation: reveal-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+/* Brand gradients — cyan to deep navy, used sparingly for emphasis */
+.gradient-btn {
+  background-image: linear-gradient(
+    120deg,
+    #33c5f4 0%,
+    var(--brand) 45%,
+    #0077b6 100%
+  );
+  background-size: 170% 100%;
+  background-position: 0% 0%;
+  transition:
+    background-position 0.45s ease,
+    transform 0.15s ease;
+}
+
+.gradient-btn:hover {
+  background-position: 95% 0%;
+}
+
+.gradient-ring {
+  background-image: conic-gradient(
+    from 210deg,
+    var(--brand),
+    var(--brand-deep) 55%,
+    var(--brand)
+  );
+}
+
+.cta-gradient {
+  background-image: linear-gradient(
+    135deg,
+    var(--brand-deep) 0%,
+    #0a4a66 55%,
+    #0d6f9e 100%
+  );
+}
+
+.night-gradient {
+  background-image: linear-gradient(
+    165deg,
+    #0d4a63 0%,
+    var(--brand-deep) 55%,
+    #041f2d 100%
+  );
+}
+
+/* Pull-quote underline — draws in from the left once the parent reveal fires */
+.underline-draw {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.45s;
+}
+
+.reveal.is-visible .underline-draw {
+  transform: scaleX(1);
+}
+
+/* FAQ accordion — native details/summary with animated open/close.
+   Browsers without ::details-content support fall back to instant toggle. */
+.faq-item {
+  interpolate-size: allow-keywords;
+}
+
+.faq-item summary {
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-chevron {
+  transition: transform 0.3s ease;
+}
+
+.faq-item[open] .faq-chevron {
+  transform: rotate(180deg);
+}
+
+.faq-item::details-content {
+  opacity: 0;
+  block-size: 0;
+  overflow: clip;
+  transition:
+    content-visibility 0.35s allow-discrete,
+    opacity 0.35s ease,
+    block-size 0.35s ease;
+}
+
+.faq-item[open]::details-content {
+  opacity: 1;
+  block-size: auto;
+}
+
+.hover-lift {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px);
+}
+
+/* Landing theme gallery */
+.lp-theme {
+  /* Transparent so the shared body mist/radial wash shows through —
+     matches inner pages like tentang-kami behind the sticky header. */
+  background: transparent;
+  color: var(--lp-ink);
+  min-height: 100%;
+}
+
+.lp-muted {
+  color: var(--lp-muted);
+}
+
+.lp-accent {
+  color: var(--lp-accent);
+}
+
+.lp-brand {
+  color: var(--lp-brand);
+}
+
+.lp-glass {
+  background: var(--lp-glass);
+  border: 1px solid var(--lp-glass-border);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border-radius: var(--lp-radius);
+}
+
+.lp-section {
+  padding-block: 3.5rem;
+}
+
+@media (min-width: 640px) {
+  .lp-section {
+    padding-block: 5rem;
+  }
+}
+
+/* Symmetric vertical gradient — both edges stay at --lp-bg-alt so the
+   solid-fill wave dividers above/below remain seamless. */
+.lp-section-alt {
+  background: linear-gradient(
+    180deg,
+    var(--lp-bg-alt) 0%,
+    #e2f1f8 50%,
+    var(--lp-bg-alt) 100%
+  );
+}
+
+.lp-divider {
+  border-color: var(--lp-line);
+}
+
+@keyframes lp-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.lp-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: lp-marquee 28s linear infinite;
+}
+
+/* Gallery marquee — continuous drift, pauses on hover/focus */
+.gallery-marquee {
+  overflow: hidden;
+}
+
+.gallery-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: lp-marquee 45s linear infinite;
+}
+
+.gallery-marquee:hover .gallery-marquee-track,
+.gallery-marquee:focus-within .gallery-marquee-track {
+  animation-play-state: paused;
+}
+
+/* CTA drifting wave background */
+.cta-wave {
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.cta-wave-track {
+  display: flex;
+  width: 200%;
+  height: 100%;
+  animation: cta-wave-drift 16s linear infinite;
+}
+
+.cta-wave-track svg {
+  width: 50%;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+@keyframes cta-wave-drift {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Twinkling stars on the night session card */
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+}
+
+.star {
+  position: absolute;
+  border-radius: 9999px;
+  background: #fff;
+  animation: twinkle 3.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-hero-fade-up,
+  .animate-hero-fade-up-delay,
+  .animate-section-fade-up,
+  .animate-hero-line,
+  .animate-ken-burns,
+  .animate-float,
+  .animate-glow-drift,
+  .cta-wave-track {
+    animation: none;
+  }
+
+  .gallery-marquee {
+    overflow-x: auto;
+  }
+
+  .gallery-marquee-track {
+    animation: none;
+  }
+
+  .star {
+    animation: none;
+    opacity: 0.6;
+  }
+
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1;
+    animation: none;
+  }
+
+  .faq-chevron,
+  .faq-item::details-content {
+    transition: none;
+  }
+
+  .underline-draw {
+    transform: none;
+    transition: none;
+  }
+
+  .slider-track {
+    scroll-behavior: auto;
+  }
+
+  .hover-lift,
+  .hover-lift:hover {
+    transition: none;
+    transform: none;
+  }
+
+  .lp-marquee-track {
+    animation: none;
+  }
 }

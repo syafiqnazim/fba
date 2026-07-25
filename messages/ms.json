@@ -1,0 +1,90 @@
+{
+  "site": {
+    "name": "Fishing Buddies Academy",
+    "shortName": "FBA",
+    "tagline": "Belajar memancing bersama rakan yang memahami air.",
+    "description": "Fishing Buddies Academy — akademi memancing di Malaysia."
+  },
+  "nav": {
+    "home": "Laman Utama",
+    "about": "Tentang Kami",
+    "services": "Perkhidmatan",
+    "blog": "Blog",
+    "contact": "Hubungi"
+  },
+  "home": {
+    "headline": "Belajar memancing. Bina kenalan.",
+    "ctaPrimary": "Hubungi kami",
+    "ctaSecondary": "Lihat perkhidmatan",
+    "coaches": {
+      "title": "Jurulatih kami",
+      "intro": "Belajar terus daripada angler yang aktif di air — teknik praktikal, etika, dan pengalaman sebenar.",
+      "items": [
+        {
+          "name": "Coach Mahfudz",
+          "role": "Pomen Reel · Reelyology",
+          "bio": "Hampir 10 tahun pengalaman senggaraan reel sejak 2010 — baitcaster, spinning, multiplier, dan elektrik. Menubuhkan Reelyology pada 2015; lebih 1,100 biji reel telah diperbaiki."
+        },
+        {
+          "name": "Coach Ariff",
+          "role": "Jurulatih",
+          "bio": "Jurulatih FBA — masa di air bersama buddy yang mahu naik tahap bersama."
+        }
+      ]
+    },
+    "blogPreview": {
+      "title": "Dari blog",
+      "intro": "Tip, cerita tangkapan, dan kemas kini daripada akademi.",
+      "viewAll": "Semua artikel"
+    }
+  },
+  "about": {
+    "title": "Tentang Kami",
+    "body": "Fishing Buddies Academy (FBA) wujud untuk mengajar kemahiran memancing yang praktikal, selamat, dan menyeronokkan — bersama komuniti yang menyokong."
+  },
+  "services": {
+    "title": "Perkhidmatan",
+    "intro": "Kami menawarkan sesi pembelajaran dan pengalaman memancing untuk pemula hingga tahap pertengahan.",
+    "items": [
+      {
+        "title": "Kelas asas",
+        "description": "Teknik asas, keselamatan, dan etika di air."
+      },
+      {
+        "title": "Sesi berpandu",
+        "description": "Belajar di lokasi sebenar dengan bimbingan langsung."
+      },
+      {
+        "title": "Bengkel berkumpulan",
+        "description": "Sesi berkumpulan untuk rakan, keluarga, atau komuniti."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Hubungi Kami",
+    "intro": "Ada soalan tentang kelas atau sesi kami? Hantar mesej — kami akan balas secepat mungkin.",
+    "name": "Nama",
+    "email": "E-mel",
+    "message": "Mesej",
+    "submit": "Hantar mesej",
+    "sending": "Menghantar…",
+    "success": "Terima kasih. Mesej anda telah dihantar.",
+    "error": "Maaf, mesej tidak dapat dihantar. Sila cuba lagi.",
+    "missingApi": "Borang hubungan belum dikonfigurasi. Tetapkan NEXT_PUBLIC_CONTACT_API_URL."
+  },
+  "blog": {
+    "title": "Blog",
+    "intro": "Tip, cerita, dan kemas kini daripada Fishing Buddies Academy.",
+    "readMore": "Baca lanjut",
+    "empty": "Belum ada artikel lagi."
+  },
+  "footer": {
+    "rights": "Hak cipta terpelihara.",
+    "domain": "fba.my"
+  },
+  "notFound": {
+    "title": "Halaman tidak dijumpai",
+    "body": "Halaman yang anda cari tidak wujud.",
+    "back": "Kembali ke laman utama"
+  }
+}
