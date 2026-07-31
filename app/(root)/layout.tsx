@@ -9,7 +9,11 @@ export default function RootRedirectLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ms" className={`${outfit.variable} ${ubuntu.variable} h-full`}>
+    <html
+      lang="ms"
+      data-scroll-behavior="smooth"
+      className={`${outfit.variable} ${ubuntu.variable} h-full`}
+    >
       <body className="flex min-h-full flex-col antialiased">{children}</body>
     </html>
   );

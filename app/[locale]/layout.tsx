@@ -22,7 +22,11 @@ export default async function LocaleLayout({
   if (!isLocale(locale)) notFound();
 
   return (
-    <html lang={locale} className={`${outfit.variable} ${ubuntu.variable} h-full`}>
+    <html
+      lang={locale}
+      data-scroll-behavior="smooth"
+      className={`${outfit.variable} ${ubuntu.variable} h-full`}
+    >
       <body className="flex min-h-full flex-col antialiased">{children}</body>
     </html>
   );
