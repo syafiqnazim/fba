@@ -12,7 +12,6 @@ import type { Messages } from "@/lib/messages";
 const navItems: { key: PageKey; labelKey: keyof Messages["nav"] }[] = [
   { key: "home", labelKey: "home" },
   { key: "about", labelKey: "about" },
-  { key: "services", labelKey: "services" },
   { key: "blog", labelKey: "blog" },
   { key: "contact", labelKey: "contact" },
 ];
@@ -110,7 +109,7 @@ export function SiteHeader({
               <span className="font-display text-xl tracking-tight text-brand md:hidden">
                 {messages.site.shortName}
               </span>
-              <span className="relative hidden h-8 w-16 overflow-hidden md:block">
+              <span className="relative hidden h-8 w-16 overflow-hidden rounded-lg bg-white md:block">
                 <Image
                   src={logo}
                   alt=""

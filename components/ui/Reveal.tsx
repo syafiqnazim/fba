@@ -31,11 +31,13 @@ export function Reveal({
   delay = 0,
 }: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
+  const [enhanced, setEnhanced] = useState(false);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    if (!el || !("IntersectionObserver" in window)) return;
+    setEnhanced(true);
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries.some((entry) => entry.isIntersecting)) {
@@ -59,7 +61,7 @@ export function Reveal({
   return (
     <Tag
       ref={ref as never}
-      className={`reveal${visible ? " is-visible" : ""}${className ? ` ${className}` : ""}`}
+      className={`reveal${enhanced ? " is-enhanced" : ""}${visible ? " is-visible" : ""}${className ? ` ${className}` : ""}`}
       style={style}
     >
       {children}

@@ -1,5 +1,9 @@
 import { notFound } from "next/navigation";
 import { isLocale, locales } from "@/lib/i18n";
+import "../globals.css";
+import { outfit, siteMetadata, ubuntu } from "../site";
+
+export const metadata = siteMetadata;
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -18,8 +22,8 @@ export default async function LocaleLayout({
   if (!isLocale(locale)) notFound();
 
   return (
-    <div lang={locale} className="flex min-h-full flex-col">
-      {children}
-    </div>
+    <html lang={locale} className={`${outfit.variable} ${ubuntu.variable} h-full`}>
+      <body className="flex min-h-full flex-col antialiased">{children}</body>
+    </html>
   );
 }

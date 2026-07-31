@@ -8,14 +8,12 @@
   "nav": {
     "home": "Laman Utama",
     "about": "Tentang Kami",
-    "services": "Perkhidmatan",
     "blog": "Blog",
     "contact": "Hubungi"
   },
   "home": {
     "headline": "Belajar memancing. Bina kenalan.",
     "ctaPrimary": "Hubungi kami",
-    "ctaSecondary": "Lihat perkhidmatan",
     "coaches": {
       "title": "Jurulatih kami",
       "intro": "Belajar terus daripada angler yang aktif di air — teknik praktikal, etika, dan pengalaman sebenar.",
@@ -41,24 +39,6 @@
   "about": {
     "title": "Tentang Kami",
     "body": "Fishing Buddies Academy (FBA) wujud untuk mengajar kemahiran memancing yang praktikal, selamat, dan menyeronokkan — bersama komuniti yang menyokong."
-  },
-  "services": {
-    "title": "Perkhidmatan",
-    "intro": "Kami menawarkan sesi pembelajaran dan pengalaman memancing untuk pemula hingga tahap pertengahan.",
-    "items": [
-      {
-        "title": "Kelas asas",
-        "description": "Teknik asas, keselamatan, dan etika di air."
-      },
-      {
-        "title": "Sesi berpandu",
-        "description": "Belajar di lokasi sebenar dengan bimbingan langsung."
-      },
-      {
-        "title": "Bengkel berkumpulan",
-        "description": "Sesi berkumpulan untuk rakan, keluarga, atau komuniti."
-      }
-    ]
   },
   "contact": {
     "title": "Hubungi Kami",

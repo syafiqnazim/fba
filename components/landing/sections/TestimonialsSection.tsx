@@ -8,7 +8,7 @@ import { Slider } from "@/components/ui/Slider";
 import { testimonialMedia } from "@/lib/landing/media";
 import type { LandingSectionProps } from "./types";
 
-export function TestimonialsSection({ content }: LandingSectionProps) {
+export function TestimonialsSection({ locale, content }: LandingSectionProps) {
   return (
     <section className="lp-section">
       <Container>
@@ -30,6 +30,8 @@ export function TestimonialsSection({ content }: LandingSectionProps) {
             showDots
             showArrows
             label={content.testimonials.title}
+            pauseLabel={locale === "ms" ? "Jeda slaid automatik" : "Pause autoplay"}
+            resumeLabel={locale === "ms" ? "Sambung slaid automatik" : "Resume autoplay"}
             trackClassName="items-stretch"
           >
             {content.testimonials.items.map((item, i) => (

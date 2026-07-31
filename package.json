@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "images:optimize": "node scripts/optimize-landing-images.mjs",
     "infra:synth": "npm run synth --prefix infra",
     "infra:deploy": "npm run deploy --prefix infra"
   },
@@ -27,6 +28,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.11",
+    "sharp": "^0.35.3",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

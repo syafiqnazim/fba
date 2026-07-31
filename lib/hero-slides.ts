@@ -1,5 +1,5 @@
 import type { StaticImageData } from "next/image";
-import icm from "@/app/assets/ICM.png";
+import icm from "@/app/assets/ICM.webp";
 
 export type HeroSlide = {
   src: StaticImageData;

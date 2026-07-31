@@ -4,20 +4,20 @@ import fishingBoat from "@/app/assets/stock/fishing-boat.jpg";
 import gear from "@/app/assets/stock/gear.jpg";
 import nightSea from "@/app/assets/stock/night-sea.jpg";
 import oceanDawn from "@/app/assets/stock/ocean-dawn.jpg";
-import coachAriff from "@/app/assets/coach-ariff.png";
-import coachMahfudz from "@/app/assets/coach-mahfudz.png";
-import coachSyafie from "@/app/assets/coach-syafie.png";
-import icm from "@/app/assets/ICM.png";
+import coachAriff from "@/app/assets/coach-ariff.webp";
+import coachMahfudz from "@/app/assets/coach-mahfudz.webp";
+import coachSyafie from "@/app/assets/coach-syafie.webp";
+import icm from "@/app/assets/ICM.webp";
 import fbaPro from "@/app/assets/programs/fba-pro.jpg";
 import fbaCircle from "@/app/assets/programs/fba-circle.jpg";
-import reelMaster from "@/app/assets/programs/reel-master.png";
-import fbaPremierCircle from "@/app/assets/programs/fba-premier-circle.png";
-import testimoni1 from "@/app/assets/testimonials/testimoni-1.png";
-import testimoni2 from "@/app/assets/testimonials/testimoni-2.png";
-import testimoni3 from "@/app/assets/testimonials/testimoni-3.png";
-import testimoni4 from "@/app/assets/testimonials/testimoni-4.png";
-import testimoni5 from "@/app/assets/testimonials/testimoni-5.png";
-import testimoni6 from "@/app/assets/testimonials/testimoni-6.png";
+import reelMaster from "@/app/assets/programs/reel-master.webp";
+import fbaPremierCircle from "@/app/assets/programs/fba-premier-circle.webp";
+import testimoni1 from "@/app/assets/testimonials/testimoni-1.webp";
+import testimoni2 from "@/app/assets/testimonials/testimoni-2.webp";
+import testimoni3 from "@/app/assets/testimonials/testimoni-3.webp";
+import testimoni4 from "@/app/assets/testimonials/testimoni-4.webp";
+import testimoni5 from "@/app/assets/testimonials/testimoni-5.webp";
+import testimoni6 from "@/app/assets/testimonials/testimoni-6.webp";
 
 /** Stock Unsplash photos (temporary) + real FBA assets for the landing. */
 export const landingMedia = {

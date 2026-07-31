@@ -8,14 +8,12 @@
   "nav": {
     "home": "Home",
     "about": "About",
-    "services": "Services",
     "blog": "Blog",
     "contact": "Contact"
   },
   "home": {
     "headline": "Learn to fish. Make friends.",
     "ctaPrimary": "Contact us",
-    "ctaSecondary": "View services",
     "coaches": {
       "title": "Our coaches",
       "intro": "Learn directly from anglers who are active on the water — practical technique, ethics, and real sessions.",
@@ -41,24 +39,6 @@
   "about": {
     "title": "About Us",
     "body": "Fishing Buddies Academy (FBA) exists to teach practical, safe, and enjoyable fishing skills — alongside a supportive community."
-  },
-  "services": {
-    "title": "Services",
-    "intro": "We offer learning sessions and fishing experiences for beginners through intermediate anglers.",
-    "items": [
-      {
-        "title": "Basics classes",
-        "description": "Core techniques, safety, and ethics on the water."
-      },
-      {
-        "title": "Guided sessions",
-        "description": "Learn on real locations with hands-on coaching."
-      },
-      {
-        "title": "Group workshops",
-        "description": "Group sessions for friends, families, or communities."
-      }
-    ]
   },
   "contact": {
     "title": "Contact Us",

@@ -29,14 +29,16 @@ export function ThemeFrame({
         <Container>
           <div className="lp-glass flex flex-col gap-3 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
             <div className="flex items-center gap-3">
-              <Image
-                src={logo}
-                alt=""
-                width={80}
-                height={32}
-                className="h-7 w-auto"
-                aria-hidden
-              />
+              <span className="inline-flex overflow-hidden rounded-lg bg-white">
+                <Image
+                  src={logo}
+                  alt=""
+                  width={80}
+                  height={32}
+                  className="h-7 w-auto"
+                  aria-hidden
+                />
+              </span>
               <p className="font-display text-base">{content.siteName}</p>
             </div>
             <p className="text-sm lp-muted">

@@ -59,14 +59,14 @@ export function StatsSection({ content }: LandingSectionProps) {
           className="grid grid-cols-2 gap-x-6 gap-y-10 text-center lg:grid-cols-4"
         >
           {content.stats.items.map((stat) => (
-            <div key={stat.label}>
-              <dd className="font-display text-4xl text-[var(--lp-brand)] sm:text-5xl">
+            <div key={stat.label} className="flex flex-col">
+              <dt className="order-2 mx-auto mt-2 max-w-[14rem] text-sm text-[var(--lp-muted)]">
+                {stat.label}
+              </dt>
+              <dd className="font-display order-1 text-4xl text-[var(--lp-brand)] sm:text-5xl">
                 <CountUp target={stat.value} start={started} />
                 {stat.suffix ?? ""}
               </dd>
-              <dt className="mx-auto mt-2 max-w-[14rem] text-sm text-[var(--lp-muted)]">
-                {stat.label}
-              </dt>
             </div>
           ))}
         </dl>

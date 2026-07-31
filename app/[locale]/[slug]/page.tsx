@@ -17,7 +17,7 @@ import {
 import { heroSlides } from "@/lib/hero-slides";
 import { getMessages } from "@/lib/messages";
 
-const staticPages: PageKey[] = ["about", "services", "contact"];
+const staticPages: PageKey[] = ["about", "contact"];
 
 export function generateStaticParams() {
   const params: { locale: Locale; slug: string }[] = [];
@@ -43,7 +43,6 @@ export async function generateMetadata({
   const messages = getMessages(localeParam);
 
   if (pageKey === "about") return { title: messages.about.title };
-  if (pageKey === "services") return { title: messages.services.title };
   return { title: messages.contact.title };
 }
 
@@ -95,29 +94,6 @@ export default async function LocalizedStaticPage({ params }: PageProps) {
               </GlassPanel>
             </Section>
           </>
-        ) : null}
-
-        {pageKey === "services" ? (
-          <Section>
-            <SectionHeader
-              title={messages.services.title}
-              intro={messages.services.intro}
-            />
-            <ul className="grid gap-4 sm:grid-cols-3 sm:gap-5">
-              {messages.services.items.map((item) => (
-                <li key={item.title}>
-                  <GlassPanel className="hover-lift h-full p-5 sm:p-6">
-                    <h2 className="font-display text-xl text-brand-deep">
-                      {item.title}
-                    </h2>
-                    <p className="mt-2 text-sm leading-relaxed text-muted">
-                      {item.description}
-                    </p>
-                  </GlassPanel>
-                </li>
-              ))}
-            </ul>
-          </Section>
         ) : null}
 
         {pageKey === "contact" ? (

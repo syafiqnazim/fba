@@ -2,13 +2,12 @@ export const locales = ["ms", "en"] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = "ms";
 
-export type PageKey = "home" | "about" | "services" | "contact" | "blog";
+export type PageKey = "home" | "about" | "contact" | "blog";
 
 /** Localized URL path segments (no leading/trailing slashes). */
 export const pagePaths: Record<PageKey, Record<Locale, string>> = {
   home: { ms: "", en: "" },
   about: { ms: "tentang-kami", en: "about" },
-  services: { ms: "perkhidmatan", en: "services" },
   contact: { ms: "hubungi", en: "contact" },
   blog: { ms: "blog", en: "blog" },
 };

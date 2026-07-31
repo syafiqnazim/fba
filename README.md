@@ -50,7 +50,6 @@ Then open [http://localhost:3000/admin/](http://localhost:3000/admin/).
 - Blog posts: `content/blog/ms/`, `content/blog/en/`
 - Localized paths (examples):
   - `/ms/tentang-kami/` ↔ `/en/about/`
-  - `/ms/perkhidmatan/` ↔ `/en/services/`
   - `/ms/hubungi/` ↔ `/en/contact/`
 
 ## Infrastructure

@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import type { StaticImageData } from "next/image";
-import coachAriff from "@/app/assets/coach-ariff.png";
-import coachMahfudz from "@/app/assets/coach-mahfudz.png";
-import coachSyafie from "@/app/assets/coach-syafie.png";
+import coachAriff from "@/app/assets/coach-ariff.webp";
+import coachMahfudz from "@/app/assets/coach-mahfudz.webp";
+import coachSyafie from "@/app/assets/coach-syafie.webp";
 import { Container } from "@/components/ui/Container";
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import { Reveal } from "@/components/ui/Reveal";

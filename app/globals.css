@@ -57,7 +57,7 @@ h1,
 h2,
 h3,
 .font-display {
-  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  font-family: var(--font-ubuntu), system-ui, sans-serif;
   letter-spacing: -0.03em;
   font-weight: 700;
 }
@@ -221,10 +221,14 @@ h3 {
 }
 
 .reveal {
+  opacity: 1;
+}
+
+.reveal.is-enhanced {
   opacity: 0;
 }
 
-.reveal.is-visible {
+.reveal.is-enhanced.is-visible {
   opacity: 1;
   animation: reveal-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) backwards;
   animation-delay: var(--reveal-delay, 0ms);
@@ -401,6 +405,12 @@ h3 {
   animation: lp-marquee 28s linear infinite;
 }
 
+.lp-marquee:hover .lp-marquee-track,
+.lp-marquee:focus-within .lp-marquee-track,
+.lp-marquee-track.is-paused {
+  animation-play-state: paused;
+}
+
 /* Gallery marquee — continuous drift, pauses on hover/focus */
 .gallery-marquee {
   overflow: hidden;
@@ -492,7 +502,8 @@ h3 {
   }
 
   .reveal,
-  .reveal.is-visible {
+  .reveal.is-enhanced,
+  .reveal.is-enhanced.is-visible {
     opacity: 1;
     animation: none;
   }

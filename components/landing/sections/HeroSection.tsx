@@ -10,7 +10,7 @@ import { heroSlides } from "@/lib/hero-slides";
 import { landingMedia } from "@/lib/landing/media";
 import type { LandingSectionProps } from "./types";
 
-export function HeroSection({ content, theme }: LandingSectionProps) {
+export function HeroSection({ locale, content, theme }: LandingSectionProps) {
   if (theme.heroStyle === "split") {
     const headlineLines = content.headline
       .split(/(?<=[.!?])\s+/)
@@ -20,14 +20,15 @@ export function HeroSection({ content, theme }: LandingSectionProps) {
       <section className="relative overflow-hidden pb-12 pt-8 sm:pb-16">
         <Container className="relative grid items-center gap-10 lg:grid-cols-2 lg:gap-8">
           <div className="order-2 max-w-xl lg:order-1">
-            <Image
-              src={logo}
-              alt={content.siteName}
-              width={160}
-              height={64}
-              preload
-              className="animate-hero-fade-up h-10 w-auto sm:h-12"
-            />
+            <span className="animate-hero-fade-up inline-flex overflow-hidden rounded-xl bg-white">
+              <Image
+                src={logo}
+                alt={content.siteName}
+                width={160}
+                height={64}
+                className="h-10 w-auto sm:h-12"
+              />
+            </span>
             <p
               className="animate-hero-fade-up mt-5 font-display text-2xl tracking-tight text-[var(--lp-ink)] sm:text-3xl"
               style={{ animationDelay: "0.08s" }}
@@ -101,6 +102,8 @@ export function HeroSection({ content, theme }: LandingSectionProps) {
         autoPlayMs={multi ? 6000 : undefined}
         showDots={multi}
         label="Hero"
+        pauseLabel={locale === "ms" ? "Jeda slaid automatik" : "Pause autoplay"}
+        resumeLabel={locale === "ms" ? "Sambung slaid automatik" : "Resume autoplay"}
         className="h-full"
         trackClassName="h-[80svh] gap-0"
       >

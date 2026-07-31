@@ -18,6 +18,8 @@ type SliderProps = {
   showArrows?: boolean;
   autoPlayMs?: number;
   label?: string;
+  pauseLabel?: string;
+  resumeLabel?: string;
 };
 
 function prefersReducedMotion(): boolean {
@@ -34,9 +36,12 @@ export function Slider({
   showArrows = false,
   autoPlayMs,
   label = "Carousel",
+  pauseLabel = "Pause autoplay",
+  resumeLabel = "Resume autoplay",
 }: SliderProps) {
   const trackRef = useRef<HTMLDivElement>(null);
   const pausedRef = useRef(false);
+  const [userPaused, setUserPaused] = useState(false);
   const [index, setIndex] = useState(0);
   const slides = Children.toArray(children);
   const count = slides.length;
@@ -78,12 +83,12 @@ export function Slider({
     if (!autoPlayMs || count < 2 || prefersReducedMotion()) return;
 
     const id = window.setInterval(() => {
-      if (pausedRef.current) return;
+      if (pausedRef.current || userPaused) return;
       scrollToIndex((index + 1) % count);
     }, autoPlayMs);
 
     return () => window.clearInterval(id);
-  }, [autoPlayMs, count, index, scrollToIndex]);
+  }, [autoPlayMs, count, index, scrollToIndex, userPaused]);
 
   function pause() {
     pausedRef.current = true;
@@ -100,6 +105,10 @@ export function Slider({
       onTouchStart={pause}
       onMouseEnter={pause}
       onMouseLeave={resume}
+      onFocusCapture={pause}
+      onBlurCapture={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) resume();
+      }}
       role="region"
       aria-roledescription="carousel"
       aria-label={label}
@@ -129,29 +138,44 @@ export function Slider({
         </div>
       ) : null}
 
-      {showDots && count > 1 ? (
-        <div
-          className={`mt-5 flex justify-center gap-2 ${dotsClassName}`}
-          role="tablist"
-        >
-          {slides.map((_, i) => (
+      {(showDots || autoPlayMs) && count > 1 ? (
+        <div className="mt-5 flex items-center justify-center gap-3">
+          {showDots ? (
+            <div
+              className={`flex justify-center gap-2 ${dotsClassName}`}
+              role="tablist"
+            >
+              {slides.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  role="tab"
+                  aria-label={`Go to slide ${i + 1}`}
+                  aria-selected={i === index}
+                  className={
+                    i === index
+                      ? "h-2 w-6 rounded-full bg-brand transition-all"
+                      : "h-2 w-2 rounded-full bg-brand-deep/25 transition-all hover:bg-brand-deep/40"
+                  }
+                  onClick={() => {
+                    pause();
+                    scrollToIndex(i);
+                  }}
+                />
+              ))}
+            </div>
+          ) : null}
+          {autoPlayMs ? (
             <button
-              key={i}
               type="button"
-              role="tab"
-              aria-label={`Go to slide ${i + 1}`}
-              aria-selected={i === index}
-              className={
-                i === index
-                  ? "h-2 w-6 rounded-full bg-brand transition-all"
-                  : "h-2 w-2 rounded-full bg-brand-deep/25 transition-all hover:bg-brand-deep/40"
-              }
-              onClick={() => {
-                pause();
-                scrollToIndex(i);
-              }}
-            />
-          ))}
+              aria-label={userPaused ? resumeLabel : pauseLabel}
+              aria-pressed={userPaused}
+              onClick={() => setUserPaused((current) => !current)}
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-line/80 bg-white text-xs font-bold text-brand-deep transition hover:bg-brand/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+            >
+              <span aria-hidden>{userPaused ? "▶" : "Ⅱ"}</span>
+            </button>
+          ) : null}
         </div>
       ) : null}
     </div>
