@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { ContactForm } from "@/components/ContactForm";
+import { ContactWhatsApp } from "@/components/ContactWhatsApp";
 import { PageShell } from "@/components/PageShell";
 import { Container } from "@/components/ui/Container";
 import { GlassPanel } from "@/components/ui/GlassPanel";
@@ -102,7 +102,7 @@ export default async function LocalizedStaticPage({ params }: PageProps) {
               title={messages.contact.title}
               intro={messages.contact.intro}
             />
-            <ContactForm messages={messages.contact} />
+            <ContactWhatsApp messages={messages.contact} />
           </Section>
         ) : null}
       </main>

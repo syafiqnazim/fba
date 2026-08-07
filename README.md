@@ -1,6 +1,6 @@
 # Fishing Buddies Academy (fba.my)
 
-Static company site for **Fishing Buddies Academy**, built as a Next.js static export and hosted on S3 + CloudFront. Dynamic contact submissions go through API Gateway → Lambda → SES. Blog content is MDX in Git, editable via Decap CMS.
+Static company site for **Fishing Buddies Academy**, built as a Next.js static export and hosted on S3 + CloudFront. Contact is WhatsApp-only. Blog content is MDX in Git, editable via Decap CMS.
 
 ## Stack
 
@@ -12,6 +12,7 @@ Static company site for **Fishing Buddies Academy**, built as a Next.js static e
 | Blog | MDX + Zod front matter |
 | CMS | Decap (`/admin/`) |
 | Default locale | Bahasa Malaysia (`/ms/`), English at `/en/` |
+| Contact | WhatsApp (`wa.me`) |
 | Infra | AWS CDK (`infra/`) |
 | Deploy | GitHub Actions + OIDC |
 
@@ -67,8 +68,6 @@ Context (see `infra/cdk.json`):
 | Key | Purpose |
 | --- | --- |
 | `domainName` | `fba.my` |
-| `contactToEmail` | Inbox for form submissions |
-| `contactFromEmail` | SES From address |
 | `hostedZoneId` | Optional Route 53 zone for auto DNS |
 | `githubOrg` / `githubRepo` | OIDC trust for GitHub Actions |
 
@@ -76,15 +75,12 @@ Context (see `infra/cdk.json`):
 
 1. **FbaCertificate** (`us-east-1`) — ACM cert for `fba.my` + `www.fba.my`
 2. **FbaHosting** — private S3 bucket, CloudFront (OAC), optional Route 53 records
-3. **FbaContact** — HTTP API + Lambda + SES domain identity
-4. **FbaGithubOidc** — deploy role for site sync / invalidation
+3. **FbaGithubOidc** — deploy role for site sync / invalidation
 
 After deploy:
 
 1. Complete ACM DNS validation (if no hosted zone was provided).
-2. Complete SES domain verification and leave sandbox if needed.
-3. Copy `ContactApiUrl` → `NEXT_PUBLIC_CONTACT_API_URL` (local `.env.local` and GitHub Actions variable).
-4. Copy `BucketName`, `DistributionId`, and `DeployRoleArn` into GitHub Actions vars/secrets.
+2. Copy `BucketName`, `DistributionId`, and `DeployRoleArn` into GitHub Actions vars/secrets.
 
 ## GitHub Actions
 
@@ -92,7 +88,6 @@ After deploy:
 
 **Variables**
 
-- `NEXT_PUBLIC_CONTACT_API_URL`
 - `SITE_BUCKET`
 - `CLOUDFRONT_DISTRIBUTION_ID`
 - `AWS_REGION` (default `ap-southeast-1`)
@@ -120,5 +115,5 @@ Staff write posts in Decap → commit MDX → GitHub Actions rebuilds → S3/Clo
 ## Architecture notes
 
 - No Next.js server runtime in production (`output: "export"`).
-- Do not put AWS keys in the frontend; the contact form posts only to API Gateway.
+- Contact uses WhatsApp only — no email API or AWS credentials in the frontend.
 - See [OVERVIEW.md](./OVERVIEW.md) for the original architecture rationale.

@@ -17,10 +17,8 @@
   "context": {
     "@aws-cdk/aws-lambda:recognizeLayerVersion": true,
     "domainName": "fba.my",
-    "contactToEmail": "hello@fba.my",
-    "contactFromEmail": "noreply@fba.my",
     "hostedZoneId": "",
-    "githubOrg": "your-org",
-    "githubRepo": "fba-site"
+    "githubOrg": "syafiqnazim",
+    "githubRepo": "fba"
   }
 }

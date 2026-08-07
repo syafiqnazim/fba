@@ -1,4 +1,5 @@
 import type { Locale } from "@/lib/i18n";
+import { FBA_PHONE_DISPLAY } from "@/lib/contact";
 
 export type LandingContent = {
   siteName: string;
@@ -178,7 +179,7 @@ const en: LandingContent = {
       {
         title: "Reel Master 6.0",
         description:
-          "Train competent reel service and repair technicians (pomen reel) to support anglers and Orca Circle. Generate income with your hobby through fast, effective learning. 24 complete modules with guidance from experienced coaches. Register for the waiting list. Starts this September. Contact Team FBA at +6017 659 1614.",
+          `Train competent reel service and repair technicians (pomen reel) to support anglers and Orca Circle. Generate income with your hobby through fast, effective learning. 24 complete modules with guidance from experienced coaches. Register for the waiting list. Starts this September. Contact Team FBA at ${FBA_PHONE_DISPLAY}.`,
         href: "https://fishingbuddiesacademy.com/",
       },
       {
@@ -430,7 +431,7 @@ const ms: LandingContent = {
       {
         title: "Reel Master 6.0",
         description:
-          "Latih pomen reel yang mahir dan kompeten untuk service dan repair reel bagi membantu pemancing dan Orca Circle. Jana pendapatan dengan hobi melalui pembelajaran cepat dan berkesan. 24 modul lengkap dengan bimbingan daripada coach yang berpengalaman. Daftar waiting list sekarang. Bermula September ini. Hubungi Team FBA di +6017 659 1614.",
+          `Latih pomen reel yang mahir dan kompeten untuk service dan repair reel bagi membantu pemancing dan Orca Circle. Jana pendapatan dengan hobi melalui pembelajaran cepat dan berkesan. 24 modul lengkap dengan bimbingan daripada coach yang berpengalaman. Daftar waiting list sekarang. Bermula September ini. Hubungi Team FBA di ${FBA_PHONE_DISPLAY}.`,
         href: "https://fishingbuddiesacademy.com/",
       },
       {

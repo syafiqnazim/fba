@@ -17,7 +17,6 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     env:
-      NEXT_PUBLIC_CONTACT_API_URL: ${{ vars.NEXT_PUBLIC_CONTACT_API_URL }}
       SITE_BUCKET: ${{ vars.SITE_BUCKET }}
       CLOUDFRONT_DISTRIBUTION_ID: ${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}
       AWS_REGION: ${{ vars.AWS_REGION || 'ap-southeast-1' }}

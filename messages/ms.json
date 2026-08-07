@@ -42,15 +42,10 @@
   },
   "contact": {
     "title": "Hubungi Kami",
-    "intro": "Ada soalan tentang kelas atau sesi kami? Hantar mesej — kami akan balas secepat mungkin.",
-    "name": "Nama",
-    "email": "E-mel",
-    "message": "Mesej",
-    "submit": "Hantar mesej",
-    "sending": "Menghantar…",
-    "success": "Terima kasih. Mesej anda telah dihantar.",
-    "error": "Maaf, mesej tidak dapat dihantar. Sila cuba lagi.",
-    "missingApi": "Borang hubungan belum dikonfigurasi. Tetapkan NEXT_PUBLIC_CONTACT_API_URL."
+    "intro": "Ada soalan tentang kelas atau sesi kami? Hubungi kami di WhatsApp — kami akan balas secepat mungkin.",
+    "guidance": "Tekan butang di bawah untuk berbual dengan Team FBA di WhatsApp.",
+    "cta": "Chat di WhatsApp",
+    "prefill": "Hai Team FBA, saya ada soalan tentang kelas anda."
   },
   "blog": {
     "title": "Blog",

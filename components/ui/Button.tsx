@@ -27,6 +27,8 @@ type ButtonAsButton = CommonProps &
 
 type ButtonAsLink = CommonProps & {
   href: string;
+  /** Open in a new tab (for external URLs such as WhatsApp). */
+  external?: boolean;
 };
 
 export function Button(props: ButtonAsButton | ButtonAsLink) {
@@ -54,6 +56,19 @@ export function Button(props: ButtonAsButton | ButtonAsLink) {
     );
 
   if ("href" in props && props.href) {
+    if (props.external) {
+      return (
+        <a
+          href={props.href}
+          className={classes}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {content}
+        </a>
+      );
+    }
+
     return (
       <Link href={props.href} className={classes}>
         {content}

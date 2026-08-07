@@ -42,15 +42,10 @@
   },
   "contact": {
     "title": "Contact Us",
-    "intro": "Questions about our classes or sessions? Send a message — we will get back to you soon.",
-    "name": "Name",
-    "email": "Email",
-    "message": "Message",
-    "submit": "Send message",
-    "sending": "Sending…",
-    "success": "Thank you. Your message has been sent.",
-    "error": "Sorry, we could not send your message. Please try again.",
-    "missingApi": "Contact form is not configured. Set NEXT_PUBLIC_CONTACT_API_URL."
+    "intro": "Questions about our classes or sessions? Reach us on WhatsApp — we will get back to you soon.",
+    "guidance": "Tap the button below to chat with Team FBA on WhatsApp.",
+    "cta": "Chat on WhatsApp",
+    "prefill": "Hi Team FBA, I have a question about your classes."
   },
   "blog": {
     "title": "Blog",

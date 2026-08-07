@@ -1,19 +1,12 @@
 #!/usr/bin/env node
 import * as cdk from "aws-cdk-lib";
 import { CertificateStack } from "../lib/certificate-stack";
-import { ContactStack } from "../lib/contact-stack";
 import { GithubOidcStack } from "../lib/github-oidc-stack";
 import { HostingStack } from "../lib/hosting-stack";
 
 const app = new cdk.App();
 
 const domainName = String(app.node.tryGetContext("domainName") ?? "fba.my");
-const contactToEmail = String(
-  app.node.tryGetContext("contactToEmail") ?? `hello@${domainName}`,
-);
-const contactFromEmail = String(
-  app.node.tryGetContext("contactFromEmail") ?? `noreply@${domainName}`,
-);
 const hostedZoneId = String(app.node.tryGetContext("hostedZoneId") ?? "");
 const githubOrg = String(app.node.tryGetContext("githubOrg") ?? "your-org");
 const githubRepo = String(app.node.tryGetContext("githubRepo") ?? "fba-site");
@@ -36,14 +29,6 @@ const hosting = new HostingStack(app, "FbaHosting", {
   certificate: certificateStack.certificate,
   hostedZoneId: hostedZoneId || undefined,
   description: "FBA static site hosting (S3 + CloudFront)",
-});
-
-new ContactStack(app, "FbaContact", {
-  env: { account, region: appRegion },
-  domainName,
-  contactToEmail,
-  contactFromEmail,
-  description: "FBA contact form API (API Gateway + Lambda + SES)",
 });
 
 new GithubOidcStack(app, "FbaGithubOidc", {
