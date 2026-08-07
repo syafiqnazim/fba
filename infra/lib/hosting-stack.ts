@@ -32,6 +32,22 @@ export class HostingStack extends cdk.Stack {
       removalPolicy: cdk.RemovalPolicy.RETAIN,
     });
 
+    const urlRewrite = new cloudfront.Function(this, "UrlRewrite", {
+      code: cloudfront.FunctionCode.fromInline(`
+function handler(event) {
+  var request = event.request;
+  var uri = request.uri;
+  if (uri.endsWith('/')) {
+    request.uri += 'index.html';
+  } else if (!uri.includes('.')) {
+    request.uri += '/index.html';
+  }
+  return request;
+}
+`),
+      comment: "Map /path/ to /path/index.html for Next static export on S3",
+    });
+
     this.distribution = new cloudfront.Distribution(this, "Distribution", {
       defaultBehavior: {
         origin: origins.S3BucketOrigin.withOriginAccessControl(this.bucket),
@@ -39,6 +55,12 @@ export class HostingStack extends cdk.Stack {
         allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
         cachedMethods: cloudfront.CachedMethods.CACHE_GET_HEAD_OPTIONS,
         compress: true,
+        functionAssociations: [
+          {
+            function: urlRewrite,
+            eventType: cloudfront.FunctionEventType.VIEWER_REQUEST,
+          },
+        ],
       },
       domainNames: [domainName, wwwDomain],
       certificate,
