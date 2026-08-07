@@ -117,3 +117,4 @@ Staff write posts in Decap → commit MDX → GitHub Actions rebuilds → S3/Clo
 - No Next.js server runtime in production (`output: "export"`).
 - Contact uses WhatsApp only — no email API or AWS credentials in the frontend.
 - See [OVERVIEW.md](./OVERVIEW.md) for the original architecture rationale.
+- See [PHASE-2.md](./PHASE-2.md) for the member portal plan (`circle.fba.my`).
