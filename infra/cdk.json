@@ -21,6 +21,9 @@
     "domainName": "fba.my",
     "hostedZoneId": "Z071216849028Z9UCOHS",
     "githubOrg": "syafiqnazim",
-    "githubRepo": "fba"
+    "githubRepo": "fba",
+    "githubSubPatterns": [
+      "repo:syafiqnazim@56761460/fba@1311935110:*"
+    ]
   }
 }

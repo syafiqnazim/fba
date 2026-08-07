@@ -70,6 +70,7 @@ Context (see `infra/cdk.json`):
 | `domainName` | `fba.my` |
 | `hostedZoneId` | Optional Route 53 zone for auto DNS |
 | `githubOrg` / `githubRepo` | OIDC trust for GitHub Actions |
+| `githubSubPatterns` | Extra OIDC `sub` patterns (immutable GitHub subject claims) |
 
 ### Stacks
 

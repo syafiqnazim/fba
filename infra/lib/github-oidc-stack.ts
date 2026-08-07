@@ -7,6 +7,8 @@ import { Construct } from "constructs";
 export type GithubOidcStackProps = cdk.StackProps & {
   githubOrg: string;
   githubRepo: string;
+  /** Extra OIDC `sub` patterns (e.g. immutable GitHub subject claims). */
+  githubSubPatterns?: string[];
   siteBucket: s3.IBucket;
   distribution: cloudfront.IDistribution;
 };
@@ -15,12 +17,18 @@ export class GithubOidcStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props: GithubOidcStackProps) {
     super(scope, id, props);
 
-    const { githubOrg, githubRepo, siteBucket, distribution } = props;
+    const { githubOrg, githubRepo, githubSubPatterns, siteBucket, distribution } =
+      props;
 
     const provider = new iam.OpenIdConnectProvider(this, "GithubProvider", {
       url: "https://token.actions.githubusercontent.com",
       clientIds: ["sts.amazonaws.com"],
     });
+
+    const subPatterns = [
+      `repo:${githubOrg}/${githubRepo}:*`,
+      ...(githubSubPatterns ?? []),
+    ];
 
     const deployRole = new iam.Role(this, "GithubDeployRole", {
       roleName: "fba-github-deploy",
@@ -31,7 +39,7 @@ export class GithubOidcStack extends cdk.Stack {
             "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
           },
           StringLike: {
-            "token.actions.githubusercontent.com:sub": `repo:${githubOrg}/${githubRepo}:*`,
+            "token.actions.githubusercontent.com:sub": subPatterns,
           },
         },
         "sts:AssumeRoleWithWebIdentity",
